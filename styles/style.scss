@@ -1,0 +1,321 @@
+/* ====== 01-settings #COLORS ====== */
+
+$color-brand-light: #E5E5E5;
+$color-brand-dark: #5C5C5C;
+
+/* ====== 01-settings #FONTS ====== */
+
+@font-face {
+    font-family: montserrat;
+    src: url(font/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: openSans;
+    src: url(font/OpenSans-Light.ttf);
+}
+
+$font: Montserrat, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;;
+$font-secondary: Arial, Helvetica, sans-serif;
+
+$font-size-h1:   4rem;     /* 32 / 16 */
+$font-size-h2:   3rem;  /* 28 / 16 */
+$font-size-h3:   1.5rem;   /* 24 / 16 */
+$font-size-h4:   1.25rem;  /* 20 / 16 */
+$font-size-h5:   1.125rem; /* 18 / 16 */
+$font-size-h6:   1rem;     /* 16 / 16 */
+$base-font-size: 1rem;
+
+$base-line-height: 1.7;
+
+$weight-bold:    700;
+$weight-normal:  400;
+
+/* ====== 01-settings #RESPONSIVE - breakpoints ====== */
+
+$bp-small:  36em; /*  576 / 16 */
+$bp-medium: 48em; /*  768 / 16 */
+$bp-large:  62em; /*  992 / 16 */
+$bp-xl:     75em; /* 1200 / 16 */
+
+
+/* ====== 02-tools #MIXINS ====== */
+
+@mixin list-reset() {
+    list-style: none;
+    margin: 0;
+}
+
+/* ====== 03-generic #reset ====== */
+
+/* Remove margins and padding. */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+p,
+pre,
+dl,
+dd,
+ol,
+ul,
+figure,
+hr,
+fieldset,
+legend {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove trailing margins from nested lists. */
+
+li > {
+  ol,
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+/* Remove the gap between audio, canvas, iframes, images, videos and the bottom */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/* Remove default border on fieldsets and Reset Chrome and Firefox behaviour which sets a `min-width: min-content;` on fieldsets. */
+
+fieldset {
+  border: 0; /* [1] */
+  min-width: 0; /* [2] */
+}
+
+/* Remove default table spacing. */
+
+table {
+  border-collapse: collapse;
+}
+
+/* ====== 03-generic #SHARED ====== */
+
+html {
+  height: 100%;
+}
+
+/* ====== Media Queries ====== */
+
+@media only screen and (min-width: $bp-xl) {
+    body {
+        max-width: $bp-xl; 
+    }
+} 
+
+/* ====== Overall page ====== */
+
+body {
+    margin-right: auto;
+    margin-left: auto;
+    overflow-x: hidden;
+    padding: 0 15px;
+}
+
+h1 {
+    font-family: montserrat, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: $font-size-h1;
+    color: $color-brand-light;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: montserrat, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: $font-size-h2;
+    color: $color-brand-dark;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-family: montserrat, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: $font-size-h3;
+    color: $color-brand-dark;
+    text-transform: uppercase;
+}
+
+
+h4 {
+    font-family: openSans, Arial, Helvetica, sans-serif;
+    font-size: $font-size-h4;
+    color: $color-brand-light;
+    font-weight: 100; 
+}
+
+p {
+    font-family: openSans, Arial, Helvetica, sans-serif;
+    font-size: $font-size-h6;
+    color: $color-brand-dark;
+    line-height: 1.7; 
+
+    .bold {
+        font-weight: 700;
+    }
+}
+
+/* ====== Intro page ====== */
+
+.intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+            ". right";
+    height: 100vh;
+
+    .background-color {
+        position: absolute;
+        background-color: #000000;
+        width: 100vw;
+        height: 100vh;
+        left: 0;
+    }
+
+    .intro__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        margin-left: 5%;
+    }
+
+    .intro__content {
+        z-index: 1;
+        grid-area: right;
+        align-self: center;
+
+        h4 {
+            margin-top: 2rem;
+        }
+    
+        .intro__links {
+            margin-top: 2rem;
+        }
+
+        img {
+            width: 47px;
+            margin-left: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: $color-brand-dark;
+            font-size: $font-size-h6;
+            font-family: montserrat, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-transform: uppercase;
+            font-weight: 600;
+            background-color: $color-brand-light;
+            padding: 10px 40px;
+            border-radius: 5px;
+
+            &:hover {
+                background-color: darken($color-brand-light, 20%);
+                color: darken($color-brand-dark, 20%);
+            }
+        }
+    }
+}
+
+/* ====== Information page ====== */
+
+.information {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+        "what what where";
+    grid-gap: 3rem;
+    background-color: #ffffff;
+    margin-top: 6rem;
+
+    .information__what {
+        grid-area: what;
+
+        p {
+            margin-top: 1rem;
+        }
+
+        h3 {
+            margin-top: 2rem;
+        }
+
+        .information__when {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-gap: 1rem;
+            margin-top: 2rem;
+
+            div {
+                background-color: $color-brand-dark;
+                border-radius: 5px;
+                padding: 1rem;
+            }
+
+            p {
+                color: $color-brand-light;
+            }
+        }
+    }
+
+    .information__where {
+        display: grid;
+        grid-area: where;
+
+        .information__itemswrapper {
+            display: grid;
+            grid-auto-rows: 1fr;
+        }
+
+        .information__items {
+            display: grid;
+            grid-template-columns: 1fr 5fr;
+            grid-gap: 1rem;
+
+            img {
+                width: 100%;
+                border-radius: 5px;
+            }
+        } 
+    }
+}
+
+/* ====== competitors page ====== */
+
+.competitors {
+    margin-top: 6rem;
+    position: absolute;
+    background-color: #000000;
+    width: 100vw;
+    left: 0;
+
+    .competitors__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h2 {
+            color: $color-brand-light;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        img {
+            max-width: $bp-xl;
+            width: 100%;
+            align-self: center;
+        }
+    }
+}
