@@ -2,6 +2,8 @@
 
 $color-brand-light: #E5E5E5;
 $color-brand-dark: #5C5C5C;
+$color-brand-blue: #202e36;
+$color-background-light: #FAFAFA;
 
 /* ====== 01-settings #FONTS ====== */
 
@@ -114,7 +116,7 @@ html {
 /* ====== Media Queries ====== */
 
 @media only screen and (min-width: $bp-xl) {
-    body {
+    .main {
         max-width: $bp-xl; 
     }
 } 
@@ -122,6 +124,10 @@ html {
 /* ====== Overall page ====== */
 
 body {
+    background-color: $color-background-light;
+}
+
+.main {
     margin-right: auto;
     margin-left: auto;
     overflow-x: hidden;
@@ -138,14 +144,14 @@ h1 {
 h2 {
     font-family: montserrat, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: $font-size-h2;
-    color: $color-brand-dark;
+    color: $color-brand-blue;
     text-transform: uppercase;
 }
 
 h3 {
     font-family: montserrat, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: $font-size-h3;
-    color: $color-brand-dark;
+    color: $color-brand-blue;
     text-transform: uppercase;
 }
 
@@ -166,6 +172,13 @@ p {
     .bold {
         font-weight: 700;
     }
+}
+
+li {
+    font-family: openSans, Arial, Helvetica, sans-serif;
+    font-size: $font-size-h6;
+    color: $color-brand-dark;
+    line-height: 1.7; 
 }
 
 /* ====== Intro page ====== */
@@ -207,7 +220,7 @@ p {
         }
 
         img {
-            width: 47px;
+            width: 60px;
             margin-left: 1rem;
         }
 
@@ -219,7 +232,7 @@ p {
             text-transform: uppercase;
             font-weight: 600;
             background-color: $color-brand-light;
-            padding: 10px 40px;
+            padding: 15px 40px;
             border-radius: 5px;
 
             &:hover {
@@ -238,7 +251,6 @@ p {
     grid-template-areas: 
         "what what where";
     grid-gap: 3rem;
-    background-color: #ffffff;
     margin-top: 6rem;
 
     .information__what {
@@ -259,7 +271,7 @@ p {
             margin-top: 2rem;
 
             div {
-                background-color: $color-brand-dark;
+                background-color: $color-brand-blue;
                 border-radius: 5px;
                 padding: 1rem;
             }
@@ -295,27 +307,44 @@ p {
 /* ====== competitors page ====== */
 
 .competitors {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    background-color: $color-brand-blue;
     margin-top: 6rem;
-    position: absolute;
-    background-color: #000000;
-    width: 100vw;
-    left: 0;
+    border-radius: 5px;
 
-    .competitors__content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+    h2 {
+        color: $color-brand-light;
+        text-align: center;
+        margin-top: 3rem;
+    }
 
-        h2 {
-            color: $color-brand-light;
-            text-align: center;
-            margin-top: 3rem;
+    img {
+        max-width: $bp-xl;
+        width: 100%;
+        align-self: center;
+    }
+}
+
+/* ====== attend page ====== */
+
+.attend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "how now";
+    grid-gap: 3rem;
+    margin-top: 6rem;
+
+    .attend__how {
+        p, li {
+            margin-top: 1rem;
         }
 
-        img {
-            max-width: $bp-xl;
-            width: 100%;
-            align-self: center;
+        li {
+            margin-left: 3rem;
         }
     }
 }
