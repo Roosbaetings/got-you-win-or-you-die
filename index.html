@@ -117,9 +117,24 @@
                 <p>Wil je ook mee doen? Vul dan deze vragenlijst in.</p>
             </div>
             <div class="attend_now">
-
+                <form name="submit-to-google-sheet">
+                    <input name="naam" type="text" placeholder="Je naam" required>
+                    <input name="telefoonnummer" type="tel" placeholder="Telefoonnummer" required>
+                    <button type="submit">Ik doe mee!</button>
+                </form>
             </div>
         </div>
     </div>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxNFl0X6Oe6CSk5rTweFzEBuKVWxc5hi8fRlVSGGRNXa0qazBtq/exec'
+        const form = document.forms['submit-to-google-sheet']
+        
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+    </script>
 </body>
 </html>
