@@ -324,6 +324,12 @@ li {
 .attend .attend__how li {
   margin-left: 3rem;
 }
+.attend .attend__how .ideal {
+  color: #202e36;
+}
+.attend .attend__how .ideal:hover {
+  color: #598096;
+}
 .attend .attend__now .hidden {
   display: none;
 }
