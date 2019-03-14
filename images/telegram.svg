@@ -4,9 +4,13 @@
 	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#E5E5E5;}
-	.st1{fill:#FFFFFF;}
+	.st1{fill:#202E36;}
 	.st2{fill:#A9C9DD;}
 	.st3{fill:#C8DAEA;}
+
+	.st0:hover {
+		fill: #b2b2b2;
+	}
 </style>
 <g>
 	<circle class="st0" cx="256" cy="256" r="247"/>

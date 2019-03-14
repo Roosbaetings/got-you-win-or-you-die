@@ -87,6 +87,7 @@ html {
 /* ====== Overall page ====== */
 body {
   background-color: #FAFAFA;
+  overflow-x: hidden;
 }
 
 .main {
@@ -94,6 +95,7 @@ body {
   margin-left: auto;
   overflow-x: hidden;
   padding: 0 15px;
+  scroll-behavior: smooth;
 }
 
 h1 {
@@ -173,24 +175,44 @@ li {
 .intro .intro__content .intro__links {
   margin-top: 2rem;
 }
-.intro .intro__content img {
+.intro .intro__content .telegram {
   width: 60px;
   margin-left: 1rem;
+  cursor: pointer;
 }
-.intro .intro__content a {
+.intro .intro__content .telegram:hover {
+  fill: #b2b2b2;
+}
+.intro .intro__content .intro__link {
   text-decoration: none;
   color: #5C5C5C;
   font-size: 1rem;
-  font-family: montserrat, Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: Montserrat, Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   text-transform: uppercase;
   font-weight: 600;
   background-color: #E5E5E5;
   padding: 15px 40px;
   border-radius: 5px;
 }
-.intro .intro__content a:hover {
+.intro .intro__content .intro__link:hover {
   background-color: #b2b2b2;
   color: #292929;
+}
+@media only screen and (max-width: 62em) {
+  .intro {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: ". right right";
+  }
+  .intro .intro__image {
+    filter: brightness(30%);
+  }
+}
+@media only screen and (max-width: 36em) {
+  .intro {
+    grid-template-columns: 1fr;
+    grid-template-areas: "right";
+    text-align: center;
+  }
 }
 
 /* ====== Information page ====== */
@@ -198,7 +220,7 @@ li {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: "what what where";
-  grid-gap: 3rem;
+  grid-gap: 6rem;
   margin-top: 6rem;
 }
 .information .information__what {
@@ -241,6 +263,26 @@ li {
   width: 100%;
   border-radius: 5px;
 }
+@media only screen and (max-width: 62em) {
+  .information {
+    grid-template-columns: 1fr;
+    grid-template-areas: "what" "where";
+  }
+  .information .information__where {
+    grid-gap: 1em;
+  }
+  .information .information__where .information__items {
+    grid-template-columns: 1fr 10fr;
+  }
+}
+@media only screen and (max-width: 36em) {
+  .information .information__what .information__when {
+    grid-template-columns: 1fr 1fr;
+  }
+  .information .information__where .information__items {
+    grid-template-columns: 1fr 5fr;
+  }
+}
 
 /* ====== competitors page ====== */
 .competitors {
@@ -262,13 +304,18 @@ li {
   width: 100%;
   align-self: center;
 }
+@media only screen and (max-width: 36em) {
+  .competitors h2 {
+    font-size: 1.5rem;
+  }
+}
 
 /* ====== attend page ====== */
 .attend {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "how now";
-  grid-gap: 3rem;
+  grid-gap: 6rem;
   margin-top: 6rem;
 }
 .attend .attend__how p, .attend .attend__how li {
@@ -276,6 +323,80 @@ li {
 }
 .attend .attend__how li {
   margin-left: 3rem;
+}
+.attend .attend__now .hidden {
+  display: none;
+}
+.attend .attend__now p {
+  margin-top: 1rem;
+}
+.attend .attend__now .submit-to-google-sheet {
+  display: flex;
+  flex-direction: column;
+}
+.attend .attend__now .submit-to-google-sheet .submit__input {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  border: 2px solid #202e36;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 5px;
+}
+.attend .attend__now .submit-to-google-sheet .submit__input label {
+  text-decoration: none;
+  color: #5C5C5C;
+  font-size: 1rem;
+  font-family: Montserrat, Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #202e36;
+}
+.attend .attend__now .submit-to-google-sheet .submit__input input {
+  border: 0px;
+  padding: 1rem;
+}
+.attend .attend__now .submit-to-google-sheet button {
+  margin-top: 2rem;
+  background-color: #202e36;
+  padding: 15px 40px;
+  border: 0;
+  border-radius: 5px;
+  font-size: 1.25rem;
+  font-family: Montserrat, Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-transform: uppercase;
+  color: #E5E5E5;
+  cursor: pointer;
+}
+.attend .attend__now .submit-to-google-sheet button:hover {
+  background-color: #767676;
+}
+@media only screen and (max-width: 62em) {
+  .attend {
+    grid-template-columns: 1fr;
+    grid-template-areas: "how" "now";
+  }
+}
+
+/* ====== footer page ====== */
+.footer {
+  margin-top: 6em;
+  position: absolute;
+  width: 100vw;
+  background-color: #202e36;
+  left: 0;
+  padding: 1em 0;
+}
+.footer p {
+  margin: 1em 0;
+  text-align: center;
+  color: #E5E5E5;
+}
+@media only screen and (max-width: 36em) {
+  .footer p {
+    margin: 1em;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

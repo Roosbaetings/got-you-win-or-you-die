@@ -21,8 +21,8 @@
                 <h1>Game of thrones league</h1>
                 <h4>You win or you die...</h4>
                 <div class="intro__links">
-                    <a href="http://">Doe mee</a>
-                    <img src="images/telegram.svg" alt="telegram icon">
+                    <a href="#attend__now--link" class="intro__link">Ik doe mee!</a>
+                    <a href="https://t.me/gameofthronesleague" target="_blank"><img src="images/telegram.svg" alt="telegram icon" class="telegram"></a>
                 </div>
             </div>
         </div>
@@ -105,7 +105,7 @@
         </div>
         <div class="attend">
             <div class="attend__how">
-                <h2>Hoe werkt de league?</h2>
+                <h2>Hoe werkt het?</h2>
                 <p>Om er een spannende league van te maken hebben we een aantal spelregels opgesteld. Dit zijn de spelregels:</p>
                 <ul>
                     <li>Elke avond stellen we vragen op die we van te voren beantwoorden. Aan de hand van de antwoorden kan je punten verdienen.</li>
@@ -114,15 +114,27 @@
                     <li>Er is 1 joker die je in kan zetten als je bijvoorbeeld een avond niet kan of een avond niet goed gespeeld hebt.</li>
                     <li>Alle punten worden na de avond online gegooid op deze website. Hierdoor kan je altijd zien op welke plek je staat en wie je dronken moet voeren om te winnen.</li>     
                 </ul>
-                <p>Wil je ook mee doen? Vul dan deze vragenlijst in.</p>
             </div>
-            <div class="attend_now">
-                <form name="submit-to-google-sheet">
-                    <input name="naam" type="text" placeholder="Je naam" required>
-                    <input name="telefoonnummer" type="tel" placeholder="Telefoonnummer" required>
+            <div class="attend__now" id="attend__now--link">
+                <h2>Ik doe mee!</h2>
+                <p>Wil je ook mee doen? Vul dan deze vragenlijst in.</p>
+                <form name="submit-to-google-sheet" class="submit-to-google-sheet">
+                    <input type="timestamp" name="timestamp" class="hidden">
+                    <div class="submit__input">
+                        <label for="naam">Je naam</label>
+                        <input name="naam" type="text" placeholder="Bijv. Daenerys Stormborn of the House Targaryen, First of Her Name, the Unburnt, Queen of the Andals and the First Men, Khaleesi of the Great Grass Sea,Breaker of Chains, and Mother of Dragons." required>
+                    </div>
+                    <div class="submit__input">
+                        <label for="telefoonnummer">Je telefoonnummer</label>
+                        <input name="telefoonnummer" type="tel" placeholder="Bijv. 0612345678" required>
+                    </div>
                     <button type="submit">Ik doe mee!</button>
                 </form>
             </div>
+        </div>
+        <div class="footer">
+            <p>When you play the game of thrones, you win or you die.</p>
+            <p>© Silke Haanstra en Roos Baetings</p>
         </div>
     </div>
     <script>
@@ -134,7 +146,7 @@
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => console.log('Success!', response))
             .catch(error => console.error('Error!', error.message))
-        })
+        });
     </script>
 </body>
 </html>
